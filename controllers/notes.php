@@ -3,8 +3,8 @@
 $config = require('config.php');
 $db = new Database($config['database']);
 
-$heading = 'Note';
+$heading = 'My Notes';
 
-$note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->fetch();
+$notes = $db->query('select * from notes where user_id = :id', ['id' => 1])->get();
 // dd($note);
-require "views/note.view.php";
+require "views/notes.view.php";
